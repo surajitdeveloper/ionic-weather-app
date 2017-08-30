@@ -1,5 +1,8 @@
 {
   "name": "get_weather",
-  "app_id": "",
-  "type": "ionic-angular"
+  "app_id": "7d8bf3da",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
 }
