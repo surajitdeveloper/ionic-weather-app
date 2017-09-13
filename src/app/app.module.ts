@@ -1,4 +1,4 @@
-import { NgModule, ErrorHandler } from '@angular/core';
+import { NgModule, ErrorHandler, ApplicationRef } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
@@ -9,7 +9,13 @@ import { ViewPage } from "../pages/view/view";
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Geolocation } from '@ionic-native/geolocation';
-import { GoogleMaps, GoogleMap } from '@ionic-native/google-maps';
+
+
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+
+
+import { AgmCoreModule } from '@agm/core';
 @NgModule({
   declarations: [
     MyApp,
@@ -20,9 +26,12 @@ import { GoogleMaps, GoogleMap } from '@ionic-native/google-maps';
   imports: [
     HttpModule,
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCC_Tteoi5wcQ8MZaWWOPIifHuc1yGllsw'
+    })
   ],
-  bootstrap: [IonicApp],
+  bootstrap: [IonicApp, MyApp],
   entryComponents: [
     MyApp,
     HomePage,
@@ -33,7 +42,7 @@ import { GoogleMaps, GoogleMap } from '@ionic-native/google-maps';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    Geolocation,GoogleMaps!, GoogleMaps
+    Geolocation
 
   ]
 })
